@@ -1,9 +1,6 @@
 package com.grupo01.speakto;
 
-import android.database.CursorJoiner;
 import android.util.Log;
-import android.widget.Toast;
-
 
 //import com.ibm.watson.developer_cloud.language_translation.v2.model.IdentifiedLanguage;
 import com.ibm.watson.developer_cloud.language_translator.v2.model.IdentifiedLanguage;
@@ -18,27 +15,10 @@ import java.util.List;
 
 /**
  *
- *  { voz to texto
- "  url": "https://stream.watsonplatform.net/speech-to-text/api",
- "  username": "737719bd-3aed-44d9-8933-3389ec4f4442",
- "  password": "MuTB25zFjLeG"
- *  }
- *
- *
- *  texto to voz
-    url": "https://stream.watsonplatform.net/text-to-speech/api"
-    username": "eb5008a4-09af-4914-abd1-553c30f615e4"
-    password": "mMaUL3c1PAff"
- *
- *
- *
  * traductor de texto a texto de ingles a español e viceversa
- *  {
-     "url": "https://gateway.watsonplatform.net/language-translator/api",
-     "username": "7cb30235-1358-4c9b-a904-7bc596c6c5c5",
-     "password": "Aw6etoqFQp1x"
-    }
  *
+ * 49d7f6de-0138-4f5b-8f78-ac48cdd93142
+ * 7Zz0RNhGCWHQ
  *
  *
  */
@@ -80,7 +60,7 @@ public class CloudApi {
     public String identificarLenguaje(String idioma){
 
         traductor = new LanguageTranslator();
-        traductor.setUsernameAndPassword("7cb30235-1358-4c9b-a904-7bc596c6c5c5", "Aw6etoqFQp1x");
+        traductor.setUsernameAndPassword("49d7f6de-0138-4f5b-8f78-ac48cdd93142", "7Zz0RNhGCWHQ");
 
         Log.i("ANDROID", "entrando a identificar");
         List<IdentifiedLanguage> languages = traductor.identify(idioma).execute();
@@ -102,7 +82,7 @@ public class CloudApi {
         try{
             Log.i("ANDROID", "entrando a ingles to spañol : " + cadena);
             traductor = new LanguageTranslator();
-            traductor.setUsernameAndPassword("7cb30235-1358-4c9b-a904-7bc596c6c5c5", "Aw6etoqFQp1x");
+            traductor.setUsernameAndPassword("49d7f6de-0138-4f5b-8f78-ac48cdd93142", "7Zz0RNhGCWHQ");
 
             TranslationResult resultado = traductor.translate(cadena, Language.ENGLISH, Language.SPANISH).execute();
 
@@ -121,7 +101,7 @@ public class CloudApi {
         try{
             Log.i("ANDROID", "entrando a español a ingles : " + cadena);
             traductor = new LanguageTranslator();
-            traductor.setUsernameAndPassword("7cb30235-1358-4c9b-a904-7bc596c6c5c5", "Aw6etoqFQp1x");
+            traductor.setUsernameAndPassword("49d7f6de-0138-4f5b-8f78-ac48cdd93142", "7Zz0RNhGCWHQ");
 
             TranslationResult resultado = traductor.translate(cadena, Language.SPANISH, Language.ENGLISH).execute();
 
